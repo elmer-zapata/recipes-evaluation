@@ -3,12 +3,35 @@
     <changeSet author="elmer" id="1001122001_create_tables">
         <createTable tableName="user">
             <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="pk_panel"/>
+                <constraints primaryKey="true" primaryKeyName="pk_user"/>
             </column>
             <column name="name" type="VARCHAR(255)"/>
             <column name="password" type="VARCHAR(255)"/>
             <column name="email" type="VARCHAR(255)"/>
             <column name="birthday" type="datetime"/>
+        </createTable>
+        <createTable tableName="recipe">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pk_recipe"/>
+            </column>
+
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="photo" type="VARCHAR(255)"/>
+            <column name="tag" type="VARCHAR(255)"/>
+            <column name="nutrition" type="VARCHAR(255)"/>
+            <column name="preparationTime" type="VARCHAR(255)"/>
+            <column name="cookTime" type="VARCHAR(255)"/>
+            <column name="readyInTime" type="VARCHAR(255)"/>
+            <column name="ingredientes" type="VARCHAR(255)"/>
+            <column name="instructions" type="VARCHAR(255)"/>
+            <column name="author_id" type="BIGINT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_author_id"
+                             references="user(id)"
+                />
+            </column>
+
         </createTable>
     </changeSet>
 
